@@ -1,0 +1,17 @@
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.button-row {
+    display: contents;
+}
+
+button {
+    height: 50px;
+    width: 100%;
+    font-size: 1.5rem;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
