@@ -30,9 +30,8 @@ const Calculator = () => {
                     'operation': operator
                 };
 
-                console.log('payload is:', payload);
-
-                fetch('/calculate', {
+                // the lambda invoked url is in an environment variable
+                fetch(`${process.env.REACT_APP_API_URL}/calculate`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
