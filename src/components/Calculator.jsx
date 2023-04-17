@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import Buttons from './Buttons';
 import Display from './Display';
+import PastCalculations from './PastCalculations';
 
 const Calculator = () => {
     const [expression, setExpression] = useState('');
     const [displayValue, setDisplayValue] = useState('');
+    const [pastCalculations, setPastCalculations] = useState([]);
 
     const handleButtonClick = (buttonValue) => {
         if (buttonValue === 'clear') {
@@ -42,6 +44,7 @@ const Calculator = () => {
                     .then(data => {
                         setDisplayValue(data.result);
                         setExpression('');
+                        setPastCalculations(data.past_calculations)
                     });
             } else {
                 // Handle invalid expression
@@ -56,6 +59,7 @@ const Calculator = () => {
         <div className="calculator">
             <Display displayValue={displayValue} />
             <Buttons handleButtonClick={handleButtonClick} />
+            <PastCalculations pastCalculations={pastCalculations} />
         </div>
     );
 };
